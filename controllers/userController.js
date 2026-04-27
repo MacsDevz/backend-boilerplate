@@ -28,7 +28,7 @@ const login = async (req, res) => {
 
   const isMatch = await bcrypt.compare(password, Users.password);
   if (!isMatch) {
-    res.json({ error: "Invalid Credentials" });
+    res.status(400).json({ error: "Invalid Credentials" });
     return;
   }
   //save to session
